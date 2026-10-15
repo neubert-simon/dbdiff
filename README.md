@@ -1,9 +1,39 @@
 # dbdiff
 
-A command line tool to view diffs between database snapshots.
-The goal is to implement the following feature set:
+A command line tool to create diffs between database snapshots.
 
-## Basic Usage
+## Feature Roadmap
+
+### v1.0 Minimum Viable Product
+
+- Connect to SQL based database engines using a configuration file.
+- Create (named) snapshots of table contents.
+- Diff creation of two snapshots.
+- Diff creation of a snapshot against current database table.
+- Show all records that differ between snapshots.
+
+### v1.1 Quality of Life Features
+- Filter to only show added, deleted, or modified records.
+- Select or ignore columns when creating diffs (filter actual diff detection).
+- Select or ignore columns when displaying diffs (filter output only).
+- Save and export diff results (e.g. to JSON).
+- Snapshot and saved file management (list, name, delete ...)
+
+<hr>
+
+### v1.x Stretch goals
+
+- Schema change detection
+- NoSQL support
+- Execution of SQL queries/scripts, creating a diff for the result.
+    - Provide previews of diffs before committing the transaction.
+- GUI based diff display (e.g. html)
+
+<br><br>
+
+## User Experience Design for v1.x
+
+### Basic Usage
 
 __-h, --help__
 Show this help page.
@@ -23,7 +53,7 @@ A script that will be executed against the database.
 __-nc, --no-commit__ 
 Give a preview of the transaction results without comitting to the database.
 
-## IO Operations
+### IO Operations
 
 __-o__ *file*, __--output__ *file*
 Write output to file.
@@ -47,7 +77,7 @@ __-l__ *filetype*
 List all known configs, outfiles or snapshots.
 The possible values of *filetype* are "configs", "outfiles", and "snapshots".
 
-## Filter Options
+### Filter Options
 
 __-s__, __--size__
 Only display amount of records affected.
