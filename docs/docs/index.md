@@ -1,4 +1,9 @@
-# Welcome to MkDocs
+---
+summary: The homepage, where the home lives
+show_datetime: true
+---
+
+# Home title
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 

@@ -1,5 +1,2 @@
 site_name: dbdiff
-nav:
-  - Home: index.md
-  - About: md/about.md
 theme: shadcn

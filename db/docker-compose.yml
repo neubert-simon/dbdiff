@@ -1,0 +1,40 @@
+# Docker compose for local test databases
+# DO NOT USE IN PRODUCTION!
+# Test data generated with https://www.beekeeperstudio.io/tools/sql-data-generator
+
+# TODO Write docs for test dbs
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: dbdiff
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_test:/var/lib/postgresql
+      - ./data/csv:/data:ro
+      - ./data/schemas/postgres:/docker-entrypoint-initdb.d:ro
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    command: --secure-file-priv=""
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: dbdiff
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_test:/var/lib/mysql
+      - ./data/csv:/data:ro
+      - ./data/schemas/mysql:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  postgres_test:
+  mysql_test:
