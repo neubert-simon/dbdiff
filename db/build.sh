@@ -1,17 +1,17 @@
 #!/bin/bash
 set -e
 
-printf '\n%s\n' "Creates PostgreSQL, MySQL and SQLite (if the file doesn't already exist) databases."
+printf '\n%s\n' "Creates PostgreSQL, MySQL and SQLite databases."
+printf '%s\n' "To overwrite an existing SQLite file, pass any argument to this script."
 
 # Pull up db containers
 docker-compose up -d
 
 # Create sqlite db
-if [ ! -f ./data/test.db ]; then
-    mkdir -p ./data
+if [[ ! -e ./data/test.db || $# -gt 0 ]]; then
     sqlite3 ./data/test.db <<EOF
 .mode csv
-.import --skip 1 ./data/csv/users.csv users
+.import ./data/csv/users.csv users
 EOF
 fi
 
