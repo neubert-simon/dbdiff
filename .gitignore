@@ -60,3 +60,10 @@ site/
 # Test data creation files
 inserts/
 sql_insert_to_csv.py
+
+### SQLite ####
+*.db
+*.sqlite
+*.sqlite3
+
+*.cfg
