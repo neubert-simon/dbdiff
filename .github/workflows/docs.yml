@@ -33,7 +33,7 @@ jobs:
       - name: Copy Javadoc
         run: |
           mkdir -p docs/docs/javadoc
-          cp -R dbdiff/target/reports/apidocs/. docs/docs/javadoc/
+          cp -R dbdiff/target/reports/apidocs/ mkdocs/docs/Javadoc/
 
       - name: Set up Python
         uses: actions/setup-python@v5

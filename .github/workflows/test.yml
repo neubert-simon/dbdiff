@@ -1,0 +1,24 @@
+name: test.yml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '26'
+
+      - name: Run unit and integration tests
+        working-directory: dbdiff
+        run: | 
+          mvn clean verify
