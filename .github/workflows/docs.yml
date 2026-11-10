@@ -40,10 +40,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install MkDocs dependencies
-        working-directory: docs
-        run: pip install -r requirements.txt
-
-      - name: Deploy documentation
-        working-directory: docs
-        run: mkdocs gh-deploy --force
+      - name: Install MkDocs dependencies and Deploy Docs
+        working-directory: mkdocs
+        run: |
+          pip install -r requirements.txt
+          mkdocs gh-deploy --force
