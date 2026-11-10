@@ -1,4 +1,5 @@
-name: docs 
+name: docs
+
 on:
   push:
     branches:
@@ -26,12 +27,13 @@ jobs:
           java-version: '26'
 
       - name: Generate Javadoc
+        working-directory: dbdiff
         run: mvn javadoc:javadoc
 
       - name: Copy Javadoc
         run: |
           mkdir -p docs/docs/javadoc
-          cp -R target/reports/apidocs/. docs/docs/javadoc/
+          cp -R dbdiff/target/reports/apidocs/. docs/docs/javadoc/
 
       - name: Set up Python
         uses: actions/setup-python@v5
