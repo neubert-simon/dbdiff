@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-printf '\n%s\n' "Creates PostgreSQL, MySQL and SQLite databases."
-printf '%s\n' "To overwrite an existing SQLite file, pass any argument to this script."
+printf '\n%s\n' "Creates PostgreSQL, MySQL and SQLite test databases."
+printf '%s\n\n' "To overwrite an existing SQLite file, pass any argument to this script."
 
 # Pull up db containers
 docker-compose up -d
@@ -16,4 +16,4 @@ EOF
 fi
 
 printf '\n%s\n' "You can now connect via the configuration files in the conf directory."
-printf '%s\n' "Remember to run docker-compose down after you've finished testing."
+printf '%s\n' "Remember to run docker-compose down or eradicate.sh after you've finished testing."

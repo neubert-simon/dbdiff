@@ -67,3 +67,4 @@ sql_insert_to_csv.py
 *.sqlite3
 
 *.cfg
+docs/docs/javadoc/
